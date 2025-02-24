@@ -1,0 +1,32 @@
+
+CREATE USER 'vini2'@'localhost' IDENTIFIED BY 'senha123';
+
+GRANT PROCESS ON *.* TO 'vini2'@'localhost';
+
+GRANT USAGE ON vio_vini.* TO 'vini2'@'localhost';
+
+GRANT CREATE, ALTER, DROP ON vio_vini.* TO 'vini2'@'localhost';
+
+CREATE TABLE exemplo3 (id INT);
+
+INSERT INTO exemplo (id) VALUES (1);
+
+DROP TABLE exemplo;
+
+REVOKE CREATE ON vio_vini.* FROM 'vini2'@'localhost';
+
+GRANT SELECT ON vio_vini.usuario TO 'vini2'@'localhost';
+
+GRANT INSERT (name) ON vio_vini.usuario TO 'vini2'@'localhost';
+
+INSERT INTO vio_vini.usuario (name) VALUES ('Novo Nome');
+
+REVOKE INSERT (name) ON vio_vini.usuario FROM 'vini2'@'localhost';
+
+GRANT UPDATE ON vio_vini.organizador TO 'vini2'@'localhost';
+
+GRANT SELECT (id_organizador) ON vio_vini.organizador TO 'vini2'@'localhost';
+
+UPDATE vio_vini.organizador SET nome = 'Organização ABC' WHERE id_organizador = 1;
+
+REVOKE ALL PRIVILEGES ON vio_vini.* FROM 'vini2'@'localhost';
